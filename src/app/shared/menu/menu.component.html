@@ -1,0 +1,12 @@
+<nav class="menu">
+    <ul>
+        <li><a (click)="goto('traffic')" class="navMenuItem"><img src="/images/fa_plane.svg" />Traffic List</a></li>
+        <li><a (click)="goto('settings')" class="navMenuItem"><img src="/images/fa_cog.svg" />Settings</a></li>
+        <li><a (click)="goto('about')" class="navMenuItem"><img src="/images/fa_info-circle.svg" />About {{appService.appName}}</a></li>
+    </ul>
+    <div class="about">
+        <img style="width:64px" src="/images/app_icon/icon-128.png" /><br />
+        <span>{{appService.appName}}</span><br />
+        <small>by tr-media.org</small>
+    </div>
+</nav>

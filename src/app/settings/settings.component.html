@@ -1,0 +1,52 @@
+<h1>Settings</h1>
+<div class="settings-panel">
+    <h3>General</h3>
+    <p>
+        <input type="checkbox" name="" value="" [(ngModel)]="app.preferIcaoCodes">Show ICAO codes instead of city names.
+    </p>
+    <h3>Profiles</h3>
+    <p>
+        <div class="scroll-area" *ngIf="!impexp">
+            <div class="profile" *ngFor="let profile of app.profiles; let i = index">
+                <div class="header" (click)="expand(i)" [ngClass]="{expanded: app.activeProfile === i && expanded}">
+                    <div class="title">{{profile.title}}</div>
+                    <div class="collapse-icon"></div>
+                </div>
+                <div class="edit-panel" *ngIf="app.activeProfile === i && expanded">
+                    <div class="section">
+                        <div class="label">Title:</div><br>
+                        <input type="text" name="" [(ngModel)]="profile.title" (changed)="app.saveProfiles()">
+                        <button type="button" id="delete-button" class="btn-sm" (click)="app.deleteProfile(i);">DELETE PROFILE</button>
+                    </div>
+                    <div class="section">
+                        <div class="label">Airports:</div><br>
+                        <div class="airport" *ngFor="let airport of airports">
+                            <div class="code">{{airport.id}}</div>
+                            <div id="none" class="action" (click)="app.removeAirportFromCurrentProfile(airport.id)" title="remove"></div>
+                            <div id="both" class="action" (click)="app.setAirportOnCurrentProfile(airport.id, true, true)" title="show arrivals and departures" [ngClass]="{selected: app.isInCurrentProfile(airport.id) === 3}"></div>
+                            <div id="dep" class="action" (click)="app.setAirportOnCurrentProfile(airport.id, false, true)" title="show departures" [ngClass]="{selected: app.isInCurrentProfile(airport.id) === 2}"></div>
+                            <div id="arr" class="action" (click)="app.setAirportOnCurrentProfile(airport.id, true, false)" title="show arrivals" [ngClass]="{selected: app.isInCurrentProfile(airport.id) === 1}"></div>
+                        </div>
+                    </div>
+                    <div class="section right">
+                        <input type="text" name="" placeholder="ICAO Code" [(ngModel)]="airportInput" (ngModelChange)="airportInput = airportInput.toUpperCase()" maxlength="4">
+                        <button type="button" class="btn-sm" (click)="addAirport();">ADD AIRPORT</button>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="export-area" *ngIf="impexp">
+            <textarea id="textare" rows="10" [(ngModel)]="profiles" (ngModelChange)="checkProfiles()"></textarea>
+        </div>
+        <div *ngIf="impexp && profileValidationError" class="error">
+            {{profileValidationError}}
+        </div>
+        <div style="float:right">
+            <button class="btn-sm" *ngIf="!impexp" (click)="app.addProfile()">Add new profile</button>
+            <button class="btn-sm" *ngIf="!impexp" (click)="toggleMode()">Import / Export</button>
+            <button class="btn-sm" *ngIf="impexp" (click)="saveProfiles()">Save profiles</button>
+            <button class="btn-sm" *ngIf="impexp" (click)="cancel()">Cancel</button>
+        </div>
+    </p>
+</div>

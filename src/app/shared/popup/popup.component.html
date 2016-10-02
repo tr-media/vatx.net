@@ -1,0 +1,63 @@
+<div class="pop-container" id="pop-container" (click)="appService.toggleNone()">
+    <div class="pop-scroll">
+        <div class="pop shadow">
+            <h1>{{flight.callsign}}</h1>
+            <p>{{callsignInWords}}</p>
+            <hr>
+            <table align="center" *ngIf="destinationAirport || departureAirport">
+                <tr *ngIf="departureAirport">
+                    <th>From:</th>
+                    <td>
+                        {{departureAirport.name}} ({{departureAirport.id}})<br> {{departureAirport.city}}, {{departureAirport.country}}
+                    </td>
+                </tr>
+                <tr *ngIf="destinationAirport">
+                    <th>To:</th>
+                    <td>
+                        {{destinationAirport.name}} ({{destinationAirport.id}})<br> {{destinationAirport.city}}, {{destinationAirport.country}}
+                    </td>
+                </tr>
+            </table>
+            <hr *ngIf="destinationAirport || departureAirport">
+            <h1>{{flight.planned_aircraft}}</h1>
+            <table align="center">
+                <tr>
+                    <th>ALT:</th>
+                    <td>{{flight.altitude}} ft</td>
+                </tr>
+                <tr>
+                    <th>HDG:</th>
+                    <td>{{flight.heading}} °</td>
+                </tr>
+                <tr>
+                    <th>GS:</th>
+                    <td>{{flight.groundspeed}} kt</td>
+                </tr>
+            </table>
+            <hr>
+            <div *ngIf="flight.planned_route">
+                <h3>ROUTE</h3>
+                <p>{{flight.planned_route}}</p>
+                <hr>
+            </div>
+            <div *ngIf="flight.planned_remarks">
+                <h3>REMARKS</h3>
+                <p>{{flight.planned_remarks}}</p>
+                <hr>
+            </div>
+            <h1>{{flight.realname}}</h1>
+            <table align="center">
+                <tr>
+                    <th>Server:</th>
+                    <td>{{flight.server}}</td>
+                </tr>
+                <tr>
+                    <th>Logon:</th>
+                    <td>{{libraryService.formatDate(flight.time_logon)}}</td>
+                </tr>
+            </table>
+            <hr>
+            <button class="btn-sm" (click)="appService.toggleNone()">Close</button>
+        </div>
+    </div>
+</div>

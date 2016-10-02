@@ -1,0 +1,6 @@
+<tr>
+    <th colspan="4" class="subheader shadow" (right-click)="showInfo( 'airport', destination)">{{airportName}}<small>{{airport}}</small></th>
+</tr>
+<tr traffic-entry class="entry" *ngFor="let flight of flights" (click)="trafficService.expand(flight.callsign)" (contextmenu)="appService.showPopup($event, flight)"
+    [type]="type" [flight]="flight">
+</tr>

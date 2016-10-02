@@ -1,0 +1,13 @@
+<div class="placeHolder" *ngIf="!app.hideProfileTipps">
+    Profiles allow you to quickly switch between airports.<br><br>
+    <button class="btn-sm" (click)="dismissTipps()">Got it!</button>
+</div>
+<div class="profile" *ngFor="let profile of app.profiles; let i = index" [ngClass]="{active: app.activeProfile === i}"
+    (click)="selectProfile(i)">
+    <div class="code">{{profile.title}}</div>
+    <div class="text">{{profile.arrivals.join(', ')}}</div>
+</div>
+<button class="btn-sm" (click)="editProfiles()">
+    Edit profiles
+</button>
+<div class="spacer"></div>

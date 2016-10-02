@@ -1,0 +1,14 @@
+<navbar></navbar>
+<div class="main-container" [ngClass]="{'reveal-left': appService.revealLeft, 'reveal-right': appService.revealProfiles || appService.revealSearch, popup: !!appService.popupContent}">
+    <div class="navbar-shadow"></div>
+    <div class="main-content">
+        <router-outlet></router-outlet>
+        <!--<div class="notification" *ngIf="libraryService.progressText">not</div>-->
+    </div>
+    <div class="cover" (click)="appService.toggleNone()"></div>
+    <div class="overlay"></div>
+    <menu></menu>
+    <profile [ngClass]="{active: appService.revealProfiles}"></profile>
+    <search [ngClass]="{active: appService.revealSearch}"></search>
+    <popup [flight]="appService.popupContent" *ngIf="appService.popupContent"></popup>
+</div>

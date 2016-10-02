@@ -1,0 +1,17 @@
+<div class="navbar">
+    <div class="nav_button" id="navMenuToggle" (click)="appService.toggleLeft()" [ngClass]="{'active': appService.revealLeft, 'inactive': appService.revealSearch || appService.revealProfiles}">
+        <!--<i id="menuButton" class="fa" [ngClass]="{'fa-arrow-left': appService.revealLeft, 'fa-bars': !appService.revealLeft}"></i>-->
+    </div>
+    <div class="nav_center" id="navTimeBar" [ngClass]="{hidden: appService.revealSearch}">
+        <span>{{utcTime}}</span><small> (UTC)</small>
+    </div>
+    <div class="nav_right" id="navSearchBar" [ngClass]="{active: appService.revealSearch}">
+        <input type="search" [(ngModel)]="searchQuery" placeholder="Search..." id="navSearchInput" (ngModelChange)="updateSearch()"/>&nbsp;
+    </div>
+    <div class="nav_button" id="navProfileToggle" (click)="appService.toggleProfiles()" [ngClass]="{'active': appService.revealProfiles, 'inactive': appService.revealLeft || appService.revealSearch}">
+        <!--<i id="searchButton" class="fa fa-search"></i>-->
+    </div>
+    <div class="nav_button" id="navSearchToggle" (click)="appService.toggleSearch()" [ngClass]="{'active': appService.revealSearch, 'inactive': appService.revealLeft || appService.revealProfiles }">
+        <!--<i id="searchButton" class="fa fa-search"></i>-->
+    </div>
+</div>

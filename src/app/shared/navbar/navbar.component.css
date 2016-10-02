@@ -1,0 +1,174 @@
+div.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #ffffff;
+    font-size: 1em;
+    font-family: 'Ubuntu', sans-serif;
+    overflow: hidden;
+    line-height: 56px;
+}
+
+div.navbar div {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 56px;
+    line-height: 56px;
+    cursor: default;
+    -moz-transition: 500ms ease all;
+    -o-transition: 500ms ease all;
+    -webkit-transition: 500ms ease all;
+    transition: 500ms ease all;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+}
+
+div.navbar div.nav_left {
+    left: 56px;
+    width: 100px;
+    padding-left: 10px;
+    text-align: left;
+}
+
+div.navbar div.nav_right {
+    width: 260px;
+    right: 56px;
+    padding-right: 10px;
+    text-align: right;
+}
+
+div.navbar div.nav_center {
+    left: 56px;
+    right: 56px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+}
+
+div.navbar div.nav_button {
+    display: inline-block;
+    line-height: 56px;
+    width: 56px;
+    height: 56px;
+    text-align: center;
+    vertical-align: bottom;
+    cursor: pointer;
+    overflow: hidden;
+    background-color: #2b2b2b;
+    -moz-transition: 500ms ease all;
+    -o-transition: 500ms ease all;
+    -webkit-transition: 500ms ease all;
+    transition: 500ms ease all;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+    -webkit-app-region: no-drag;
+}
+
+div.navbar div.nav_button i {
+    line-height: 56px;
+}
+
+div.navbar div.nav_button#navMenuToggle {
+    left: 0;
+    background-image: url('images/menu.png');
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+div.navbar div.nav_button#navProfileToggle {
+    right: 56px;
+    background-image: url('images/profiles.png');
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+div.navbar div.nav_button#navSearchToggle {
+    right: 0;
+    background-image: url('images/search.png');
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+div.navbar div.nav_button#navSearchToggle.active {
+    background-image: url('images/cancel.png');
+}
+
+div.navbar #navSearchBar {
+    opacity: 0;
+    vertical-align: bottom;
+    pointer-events: none;
+}
+
+div.navbar #navSearchBar.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+div.navbar #navTimeBar {
+    opacity: 1;
+    transition: 500ms ease all;
+}
+
+div.navbar #navTimeBar.hidden {
+    opacity: 0;
+}
+
+div.navbar #navSearchInput {
+    width: 240px;
+    font-size: .9em;
+    -moz-transition: 500ms ease all;
+    -o-transition: 500ms ease all;
+    -webkit-transition: 500ms ease all;
+    transition: 500ms ease all;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+}
+
+div.navbar .nav_button.active {
+    background-color: #1b1b1b;
+}
+
+div.navbar .nav_button.inactive {
+    opacity: 0;
+    pointer-events: none;
+}

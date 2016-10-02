@@ -1,0 +1,26 @@
+<div class="half">
+    <h2>{{type}}</h2>
+    <table class="trafficlist">
+        <thead>
+            <tr>
+                <th class="header c1 shadow">{{columns[0]}}</th>
+                <th class="header c2 shadow">{{columns[1]}}</th>
+                <th class="header c3 shadow">{{columns[2]}}</th>
+                <th class="header c4 shadow">{{columns[3]}}</th>
+            </tr>
+        </thead>
+        <tbody traffic-list [type]="type" [airport]="airport" *ngFor="let airport of airports" (flightsUpdated)="flightsUpdated($event)"
+            [hidden]="!flightCountPerAirport[airport]"></tbody>
+        <tfoot>
+            <tr>
+                <td class="footer c1 shadow"></td>
+                <td class="footer c2 shadow"></td>
+                <td class="footer c3 shadow"></td>
+                <td class="footer c4 shadow"></td>
+            </tr>
+            <tr>
+                <td colspan="4" class="extfooter">Total: {{flightCount}}</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

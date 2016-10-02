@@ -1,0 +1,47 @@
+<div class="placeHolder" *ngIf="libraryService.searchResults.length === 0">
+    Search for airports and airlines by name or ICAO code.
+</div>
+<div class="searchResult" [ngClass]="{airline: result.type === 'aln', expanded: selectedResult === result.id}" *ngFor="let result of libraryService.searchResults" (click)="toggle(result)" [ngClass]="{}">
+    <div class="code">{{result.id}}</div>
+    {{result.text}}
+    <div class="icon"></div>
+    <div class="details" *ngIf="result.type === 'apt'">
+        <table>
+            <tr> 
+                <th>Name:</th>
+                <td>{{result.airport.name}}</td>
+            </tr>
+            <tr> 
+                <th>City:</th>
+                <td>{{result.airport.city}}</td>
+            </tr>
+            <tr> 
+                <th>Country:</th>
+                <td>{{result.airport.country}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="details" *ngIf="result.type === 'aln'">
+        <table>
+            <tr> 
+                <th>Callsign:</th>
+                <td>{{result.airline.callsign}}</td>
+            </tr>
+            <tr> 
+                <th>Name:</th>
+                <td>{{result.airline.name}}</td>
+            </tr>
+            <tr> 
+                <th>Country:</th>
+                <td>{{result.airline.country}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="actions" *ngIf="result.type === 'apt'">
+        <div class="label">Add to current profile:</div>
+        <div id="arrivals" class="action" (click)="toggleState(result, true, false)" title="add to arrivals" [ngClass]="{selected: app.isInCurrentProfile(result.id) === 1}"></div>
+        <div id="departures" class="action" (click)="toggleState(result, false, true)" title="add to departures" [ngClass]="{selected: app.isInCurrentProfile(result.id) === 2}"></div>
+        <div id="both" class="action" (click)="toggleState(result, true, true)" title="add to arrivals and departures"  [ngClass]="{selected: app.isInCurrentProfile(result.id) === 3}"></div>
+    </div>
+</div>
+<div class="spacer"></div>

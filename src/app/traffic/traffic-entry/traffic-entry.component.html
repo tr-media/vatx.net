@@ -1,0 +1,9 @@
+<td [hidden]="trafficService.expanded[flight.callsign]" class="entry c1 shadow">{{flight.callsign}}<i class="fa fa-microphone-slash" style="margin-left:5px;font-size:80%" *ngIf="flight.no_voice"></i></td>
+<td [hidden]="trafficService.expanded[flight.callsign]" class="entry c2 shadow">{{flight.realname}}</td>
+<td [hidden]="trafficService.expanded[flight.callsign]" class="entry c3 shadow">{{app.preferIcaoCodes ? airport : airportCity || airport}}</td>
+<td [hidden]="trafficService.expanded[flight.callsign]" class="entry c4 shadow">{{flight.status_string}}</td>
+
+<td [hidden]="!trafficService.expanded[flight.callsign]" class="entry c1 shadow"><b>{{flight.callsign}}</b><i class="fa fa-microphone-slash" style="margin-left:5px;font-size:80%" *ngIf="flight.no_voice"></i><br><small>{{callsignAndType}}</small></td>
+<td [hidden]="!trafficService.expanded[flight.callsign]" class="entry c2 shadow"><b>{{flight.realname}}</b><br><small>Homebase: {{flight.homebase || 'Unknown'}}</small></td>
+<td [hidden]="!trafficService.expanded[flight.callsign]" class="entry c3 shadow"><b>{{airportName}} ({{airport}})</b><br><small>{{airportCity || 'Unknown'}}, {{airportCountry || 'Unknown'}}</small></td>
+<td [hidden]="!trafficService.expanded[flight.callsign]" class="entry c4 shadow"><b>{{flight.status_string}}</b><br><small>Distance: {{flight.distance_to_destination}} NM</small></td>

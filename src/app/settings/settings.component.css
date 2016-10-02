@@ -1,0 +1,244 @@
+textarea {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    background-color: #3e6a8c;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    color: #eee;
+    border: 1px solid #999999;
+    font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace !important;
+}
+
+div.settings-panel {
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    max-width: 720px;
+    text-align: left;
+}
+
+div.header {
+    background-color: #2F383F;
+    font-size: 1em;
+    font-weight: 700;
+    padding: .4em;
+    height: 32px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: white;
+    cursor: pointer;
+}
+
+div.profile {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 5px;
+    padding-left: 2px;
+    text-align: left;
+    color: white;
+    font-size: .9em;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+div.header div.title {
+    position: absolute;
+    padding-left: 8px;
+    font-weight: bold;
+    height: 32px;
+    line-height: 32px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+
+div.header div.collapse-icon {
+    float: right;
+    width:32px;
+    height:32px;
+    border-radius: 3px;
+    background-image: url('images/arrow-right.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 32px;
+}
+
+div.header.expanded div.collapse-icon {
+    background-image: url('images/arrow-down.png');
+}
+
+div.header div.collapse-icon:hover {
+    background-color: #3e6a8c;
+}
+
+div.profile div.edit-panel {
+    border-radius: 3px;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+
+div.edit-panel div.section {
+    position: relative;
+    padding: 10px;
+    border-radius: 2px;
+    margin-top: 2px;
+    background-color: #3e6a8c;
+}
+
+div.edit-panel div.section.right {
+    text-align: right;
+}
+
+div.label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+div.profile div.text {
+    padding-left: 8px;
+    font-weight: normal;
+    height: 16px;
+    line-height: 16px;
+    vertical-align: middle;
+    font-size: .7em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: left;
+    width: 100%;
+}
+
+#delete-button  {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+#delete-button:hover {
+    background-color: darkred;
+}
+
+div.airport {
+    background-color: white;
+    color: #1b1b1b;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    height: 32px;
+}
+
+div.airport div.code {
+    position: absolute;
+    padding-left: 8px;
+    font-weight: bold;
+    height: 32px;
+    line-height: 32px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+
+div.airport div.action {
+    background-color: #eeeeee;
+    background-color: #2b2b2b;
+    border-radius: 3px;
+    background-size: 24px 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 4px;
+    margin-right: 5px;
+    float:right;
+    height: 24px;
+    line-height: 24px;
+    width: 40px;
+    cursor: pointer;
+    /*border-left: 2px solid #3e6a8c;*/
+}
+div.airport div.action:hover {
+    background-color: #4b4b4b; 
+}
+
+div.airport div.action.selected {
+    background-color: green; 
+}
+
+#arr.action {
+    background-image: url('images/plane2.png');
+}
+
+#dep.action {
+    background-image: url('images/plane.png');
+}
+
+#both.action {
+    background-image: url('images/plane3.png');
+    background-size: 48px 24px;
+    width: 80px;
+}
+
+#none.action {
+    margin-left: 10px;
+    background-image: url('images/x.png');
+}
+
+#none.action:hover {
+    background-color: darkred;
+}
+
+div.profile div.dep {
+    font-weight: normal;
+    height: 16px;
+    line-height: 16px;
+    vertical-align: middle;
+    font-size: .7em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: left;
+}
+
+div.profile div.arrival-icon {
+    position: absolute;
+    left: 8px;
+    top: 24px;
+    background-image: url('images/plane2.png');
+    background-size: 100% 100%;
+    width: 16px;
+    height: 16px;
+}
+
+div.scroll-area {
+    border-left: 5px solid #2F383F;
+    /*background-color: #3e6a8c;*/
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    width: 100%;
+}
+
+div.export-area {
+    background-color: #3e6a8c;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+div.error {
+    float:left;
+    color: red;
+    background-color: white;
+    border: 3px solid red;
+    padding: 5px 10px;
+    margin: 10px;
+}
+
+img.inline-img {
+    background-color: black;
+    width: 16px;
+    height: 16px;
+    background-color: #2b2b2b;
+    border-radius: 3px;
+    margin-right: 8px;
+    vertical-align: middle;
+}

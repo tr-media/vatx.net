@@ -1,0 +1,107 @@
+nav.menu {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+}
+
+nav.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 56px;
+    padding-bottom: 80;
+}
+
+nav.menu li {
+    display: block;
+    text-align: center;
+    border-bottom: solid 1px #2b2b2b;
+}
+
+nav.menu li:first-child {
+    border-top: none;
+}
+
+nav.menu li:last-child {
+    border-bottom: none;
+}
+
+nav.menu i {
+    width: 56px;
+    margin-right: 10px;
+}
+
+nav.menu a img {
+    height: 23px;
+    width: 56px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+nav.menu a {
+    display: block;
+    padding: 15px;
+    padding-left: 0;
+    font-size: 18px;
+    text-align: left;
+    text-decoration: none;
+    color: #eee;
+    cursor: pointer;
+}
+
+nav.menu a:hover {
+    background-color: #3b3b3b;
+    color: #fff;
+}
+
+nav.menu div.about {
+    position: absolute;
+    bottom: 60;
+    left: 0;
+    right: 0;
+    display: block;
+    -moz-transition: 500ms ease all;
+    -o-transition: 500ms ease all;
+    -webkit-transition: 500ms ease all;
+    transition: 500ms ease all;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+}
+
+nav.menu > div.about {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    display: block;
+    -moz-transition: 500ms ease all;
+    -o-transition: 500ms ease all;
+    -webkit-transition: 500ms ease all;
+    transition: 500ms ease all;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+}

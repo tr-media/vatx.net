@@ -1,0 +1,37 @@
+<div *ngIf="dbService.ready && app.profiles[app.activeProfile]">
+    <traffic-table type="ARRIVALS" [airports]="app.profiles[app.activeProfile].arrivals"></traffic-table>
+    <traffic-table type="DEPARTURES" [airports]="app.profiles[app.activeProfile].departures"></traffic-table>
+</div>
+<footer>
+    <table class="footer ">
+        <tbody>
+            <tr>
+                <td class="shadow">
+                    <b>{{app.appName}}</b><small>&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;tr-media.org</small><br>
+                    <small *ngIf="trafficService.serverStats.hasData ">VATSIM&nbsp;DATA&nbsp;FROM&nbsp;<span>{{trafficService.serverStats.getLastStreamUpdate('HH:mm')}}</span>&nbsp;(UTC): <span>{{trafficService.serverStats.onlinePilots}}</span>&nbsp;PILOTS,&nbsp;<span>{{trafficService.serverStats.onlineAtcs}}</span>&nbsp;ATC,&nbsp;<span>{{trafficService.serverStats.onlineAtis}}</span>&nbsp;ATIS</small>
+                    <small *ngIf="!trafficService.serverStats.hasData ">
+                      VATSIM DATA IS CURRENTLY BEING DOWNLOADED
+                    </small>
+                </td>
+            </tr>
+            <tr *ngIf="libraryService.updatingAirlines">
+                <td class="progress shadow">
+                    <progress-bar label="Updating airline database..." [progress]="libraryService.updatingAirlines"></progress-bar>
+                </td>
+            </tr>
+            <tr *ngIf="libraryService.updatingAirports">
+                <td class="progress shadow">
+                    <progress-bar label="Updating airport database..." [progress]="libraryService.updatingAirports"></progress-bar>
+                </td>
+            </tr>
+            <tr *ngIf="trafficService.serverStats.dataIsOld() ">
+                <td class="warning shadow">
+                    The VATSIM servers are currently providing old data.
+                </td>
+            </tr>
+            <tr>
+                <td class="footer shadow"></td>
+            </tr>
+        </tbody>
+    </table>
+</footer>
