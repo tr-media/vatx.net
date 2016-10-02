@@ -1,0 +1,5 @@
+/node_modules
+/dist
+/typings
+/electron/node_modules
+npm-debug.log*

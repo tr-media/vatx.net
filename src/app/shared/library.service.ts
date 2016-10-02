@@ -44,7 +44,7 @@ export class LibraryService {
                 let newLibraryInfo: LibraryInfo = new LibraryInfo(results[1]);
                 oldLibraryInfo.serverVersion = newLibraryInfo.serverVersion;
                 if (newLibraryInfo.airport_rev > oldLibraryInfo.airport_rev) {
-                    console.log('Airports ourdated');
+                    console.log('Airports outdated');
                     // download airports
                     this.networkService.getAirports().subscribe(data => {
                         let airports: any = this.db.vatxDatabase.getSchema().table('airports');
