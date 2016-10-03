@@ -17,7 +17,7 @@ export class SettingsComponent {
     public profiles: string;
     public profileValidationError = undefined;
     private editProfile: number = -1;
-    private shoeExportPanel = false;
+    private showExportPanel = false;
     private newProfile: Profile;
 
     constructor(
@@ -41,7 +41,7 @@ export class SettingsComponent {
     public cancel() {
         this.profiles = JSON.stringify(this.app.profiles, undefined, 2);
         this.checkProfiles();
-        this.shoeExportPanel = false;
+        this.showExportPanel = false;
     }
 
     public expand(id) {
@@ -94,12 +94,12 @@ export class SettingsComponent {
         let profiles = this.checkProfiles();
         if (!this.profileValidationError) {
             this.app.profiles = profiles;
-            this.shoeExportPanel = false;
+            this.showExportPanel = false;
         }
     }
 
     public toggleMode() {
-        this.shoeExportPanel = !this.shoeExportPanel;
+        this.showExportPanel = !this.showExportPanel;
     }
 
     private checkProfiles() {

@@ -6,7 +6,7 @@
     </p>
     <h3>Profiles</h3>
     <p>
-        <div class="scroll-area" *ngIf="!impexp">
+        <div class="scroll-area" *ngIf="!showExportPanel">
             <div class="profile" *ngFor="let profile of app.profiles; let i = index">
                 <div class="header" (click)="expand(i)" [ngClass]="{expanded: app.activeProfile === i && expanded}">
                     <div class="title">{{profile.title}}</div>
@@ -36,17 +36,17 @@
                 </div>
             </div>
         </div>
-        <div class="export-area" *ngIf="impexp">
+        <div class="export-area" *ngIf="showExportPanel">
             <textarea id="textare" rows="10" [(ngModel)]="profiles" (ngModelChange)="checkProfiles()"></textarea>
         </div>
-        <div *ngIf="impexp && profileValidationError" class="error">
+        <div *ngIf="showExportPanel && profileValidationError" class="error">
             {{profileValidationError}}
         </div>
         <div style="float:right">
-            <button class="btn-sm" *ngIf="!impexp" (click)="app.addProfile()">Add new profile</button>
-            <button class="btn-sm" *ngIf="!impexp" (click)="toggleMode()">Import / Export</button>
-            <button class="btn-sm" *ngIf="impexp" (click)="saveProfiles()">Save profiles</button>
-            <button class="btn-sm" *ngIf="impexp" (click)="cancel()">Cancel</button>
+            <button class="btn-sm" *ngIf="!showExportPanel" (click)="app.addProfile()">Add new profile</button>
+            <button class="btn-sm" *ngIf="!showExportPanel" (click)="toggleMode()">Import / Export</button>
+            <button class="btn-sm" *ngIf="showExportPanel" (click)="saveProfiles()">Save profiles</button>
+            <button class="btn-sm" *ngIf="showExportPanel" (click)="cancel()">Cancel</button>
         </div>
     </p>
 </div>

@@ -1,6 +1,6 @@
 {
     "name": "vatx.net",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "description": "A customizable traffic list for VATSIM controllers.",
     "main": "index.js",
     "scripts": {
