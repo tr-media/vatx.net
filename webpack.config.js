@@ -74,11 +74,14 @@ module.exports = {
             name: ['app', 'vendor', 'polyfills']
         }),
         //new webpack.optimize.DedupePlugin(),
-        // new webpack.optimize.UglifyJsPlugin({
-        //   compress: {
-        //       warnings: false
-        //   }
-        // }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            },
+            output: {
+                comments: false
+            }
+        }),
 
         new HtmlWebpackPlugin({
             template: 'src/index.html'
