@@ -16,13 +16,13 @@
                     <div class="section">
                         <div class="label">Title:</div><br>
                         <input type="text" name="" [(ngModel)]="profile.title" (changed)="app.saveProfiles()">
-                        <button type="button" id="delete-button" class="btn-sm" (click)="app.deleteProfile(i);">DELETE PROFILE</button>
+                        <button type="button" id="delete-button" class="btn-sm" (click)="deleteProfile(i);">DELETE PROFILE</button>
                     </div>
                     <div class="section">
                         <div class="label">Airports:</div><br>
                         <div class="airport" *ngFor="let airport of airports">
                             <div class="code">{{airport.id}}</div>
-                            <div id="none" class="action" (click)="app.removeAirportFromCurrentProfile(airport.id)" title="remove"></div>
+                            <div id="none" class="action" (click)="removeAirportFromCurrentProfile(airport.id)" title="remove"></div>
                             <div id="both" class="action" (click)="app.setAirportOnCurrentProfile(airport.id, true, true)" title="show arrivals and departures" [ngClass]="{selected: app.isInCurrentProfile(airport.id) === 3}"></div>
                             <div id="dep" class="action" (click)="app.setAirportOnCurrentProfile(airport.id, false, true)" title="show departures" [ngClass]="{selected: app.isInCurrentProfile(airport.id) === 2}"></div>
                             <div id="arr" class="action" (click)="app.setAirportOnCurrentProfile(airport.id, true, false)" title="show arrivals" [ngClass]="{selected: app.isInCurrentProfile(airport.id) === 1}"></div>

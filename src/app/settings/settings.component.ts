@@ -5,6 +5,7 @@ import { AppService } from '../shared/app.service';
 import { DbService } from '../shared/db.service';
 
 import { Profile } from '../shared';
+declare var swal: any;
 
 @Component({
     selector: 'settings',
@@ -95,7 +96,43 @@ export class SettingsComponent {
         if (!this.profileValidationError) {
             this.app.profiles = profiles;
             this.showExportPanel = false;
+            swal('Saved!', 'Changes have been saved.', 'success');
+        } else {
+            swal('No!', 'There are validation errors. Fix the errors and try again.', 'error');
         }
+    }
+
+    public deleteProfile(i: number) {
+        swal({
+            title: 'Are you sure?',
+            text: 'This will permanently remove the selected profile.',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: 'darkred',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(() => {
+            this.app.deleteProfile(i);
+            swal(
+                'Deleted!',
+                'This profile is gone.',
+                'success'
+            );
+        }, dismiss => {});
+    }
+
+    public removeAirportFromCurrentProfile(id: string) {
+        swal({
+            title: 'Are you sure?',
+            text: 'Remove the selected airport from this profile?',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: 'darkred',
+            confirmButtonText: 'Yes, remove it!'
+        }).then(() => {
+            this.app.removeAirportFromCurrentProfile(id);
+        }, dismiss => {});
     }
 
     public toggleMode() {
