@@ -8,9 +8,14 @@
 
 # Changelog
 
+### v2.1.0 - 2016-10-06
+- Added sweet alert warnings before deleting important things.
+
+---
+
 ### v2.0.1 - 2016-10-02
-- Added event tracking
-- Minor stability fixes
+- Added event tracking.
+- Minor stability fixes.
 
 ---
 
