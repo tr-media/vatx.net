@@ -118,7 +118,9 @@ export class SettingsComponent {
                 'This profile is gone.',
                 'success'
             );
-        }, dismiss => {});
+        }, dismiss => {
+            return; // do nothing, otherwise swal throws an exception
+        });
     }
 
     public removeAirportFromCurrentProfile(id: string) {
@@ -132,7 +134,9 @@ export class SettingsComponent {
             confirmButtonText: 'Yes, remove it!'
         }).then(() => {
             this.app.removeAirportFromCurrentProfile(id);
-        }, dismiss => {});
+        }, dismiss => {
+            return; // do nothing, otherwise swal throws an exception
+        });
     }
 
     public toggleMode() {
