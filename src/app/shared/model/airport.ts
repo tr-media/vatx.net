@@ -1,3 +1,4 @@
+import * as lf from 'lovefield';
 
 export class Airport {
     public id: string = '';

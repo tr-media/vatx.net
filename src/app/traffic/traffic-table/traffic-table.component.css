@@ -1,0 +1,48 @@
+div.trafficlist {
+    background-color: transparent;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+div.row {
+    width: 100%;
+    clear: both;
+    margin-bottom: 2px;
+}
+
+div.header {
+    width: 100%;
+    margin-bottom: 2px;
+}
+
+div.header > div {
+    float: left;
+    width: 25%;
+    background-color: #2F383F;
+    padding: 0.4em 0;
+    font-size: 0.7em;
+    font-weight: 700;
+}
+
+div.header > div.c1 {
+    -moz-border-radius: 3px 0 0 3px;
+    -webkit-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+}
+
+div.header > div.c4 {
+    -moz-border-radius: 0 3px 3px 0;
+    -webkit-border-radius: 0 3px 3px 0;
+    border-radius: 0 3px 3px 0;
+}
+
+@media screen and (max-width: 475px) {
+    div.header > div {
+        width: 33%;
+    }
+    div.header > div.c2 {
+        display: none;
+    }
+}

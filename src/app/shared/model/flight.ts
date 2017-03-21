@@ -1,8 +1,9 @@
 /* tslint:disable: variable-name */
 
-import { FlightStatus } from './flightStatus';
-import * as lf from 'lf';
+import * as lf from 'lovefield';
 import * as moment from 'moment';
+
+import { FlightStatus } from './flightStatus';
 
 export class Flight {
     // Fields received from data stream

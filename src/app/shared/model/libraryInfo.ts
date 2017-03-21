@@ -1,5 +1,7 @@
 /* tslint:disable: variable-name */
 
+import * as lf from 'lovefield';
+
 export class LibraryInfo {
     public id: number = 0;
     public serverVersion: string = '';

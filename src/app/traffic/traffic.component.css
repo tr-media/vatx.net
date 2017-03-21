@@ -86,6 +86,13 @@ div.half {
     perspective: 1000;
 }
 
+table.trafficlist .headerwide {
+    display: table-row;
+}
+table.trafficlist .headerslim {
+    display: none;
+}
+
 @media screen and (max-width: 50em) {
     div.half {
         width: 100% !important;
@@ -128,7 +135,13 @@ div.half {
 
 @media screen and (max-width: 475px) {
     table.trafficlist .c2 {
-        width: 0;
+        display: none;
+    }
+    table.trafficlist .headerwide {
+        display: none;
+    }
+    table.trafficlist .headerslim {
+        display: table-row;
     }
 }
 
@@ -234,6 +247,8 @@ table.trafficlist td.footer.c4 {
     -webkit-border-radius: 0 0 3px 0;
     border-radius: 0 0 3px 0;
 }
+
+
 
 h2 {
     font-size: 1.4em;

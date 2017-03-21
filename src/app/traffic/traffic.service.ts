@@ -1,8 +1,5 @@
-import { Injectable } from '@angular/core';
-
-import { AnalyticsService } from '../shared/analytics.service';
+import * as lf from 'lovefield';
 import * as moment from 'moment';
-import { Observable } from 'rxjs/Observable';
 
 import {
     DbService,
@@ -11,8 +8,12 @@ import {
     LovefieldHelper,
     NetworkService,
     ServerStats,
-    Setting
+    Setting,
 } from '../shared/';
+
+import { AnalyticsService } from '../shared/analytics.service';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class TrafficService {
