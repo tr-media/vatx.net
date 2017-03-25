@@ -1,4 +1,4 @@
-div.entry {
+/*div.entry {
     float: left;
     width: 25%;
     color: #2b2b2b;
@@ -8,12 +8,6 @@ div.entry {
     -ms-text-overflow: ellipsis;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
-}
-@media screen and (max-width: 475px) {
-    div.entry {
-        width: 33%;
-    }
-    div.entry.c2 {
-        display: none;
-    }
-}
+    height: 28px;
+    vertical-align: middle;
+}*/

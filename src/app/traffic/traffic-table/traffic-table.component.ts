@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
     selector: 'traffic-table',
     templateUrl: './traffic-table.component.html',
-    styleUrls: ['./traffic-table.component.css']
+    styleUrls: ['./traffic-table.component.css'],
+    encapsulation: ViewEncapsulation.None
 })
 export class TrafficTableComponent implements OnInit {
     @Input()

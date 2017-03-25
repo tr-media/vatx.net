@@ -2,6 +2,8 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+//var autoprefixer = require('autoprefixer');
+var path = require('path');
 
 module.exports = {
     devtool: 'source-map',
@@ -16,45 +18,37 @@ module.exports = {
 
 
     output: {
-        path: 'dist',
+        path: path.join(__dirname, '/dist'),
         filename: '[name].[hash].js',
         chunkFilename: '[id].[hash].chunk.js'
     },
 
     resolve: {
-        extensions: ['', '.js', '.ts']
+        extensions: ['.js', '.ts']
     },
-
-    htmlLoader: {
-        minimize: true,
-        removeAttributeQuotes: false,
-        caseSensitive: true,
-        customAttrSurround: [[/#/, /(?:)/], [/\*/, /(?:)/], [/\[?\(?/, /(?:)/]],
-        customAttrAssign: [/\)?\]?=/]
-    },
-
+    
     module: {
         loaders: [
             {
                 test: /\.ts$/,
-                loaders: ['ts', 'angular2-template-loader']
+                loaders: ['ts-loader', 'angular2-template-loader']
             },
             {
                 test: /\.html$/,
-                loader: 'html'
+                loader: 'html-loader'
             },
             {
                 test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-                loader: 'file?name=assets/[name].[hash].[ext]'
+                loader: 'file-loader?name=assets/[name].[hash].[ext]'
             },
             {
                 test: /\.css$/,
                 exclude: /node_modules/,
-                loader: 'raw'
+                loader: 'raw-loader'
             },
             {
                 test: /\.json$/,
-                loader: 'json'
+                loader: 'json-loader'
             }
             //{
             //  test: /\.css$/,
@@ -92,6 +86,18 @@ module.exports = {
             { from: './src/css', to: 'css' },
             { from: './src/fonts', to: 'fonts' },
             { from: './src/api', to: 'api' }
-        ])
+        ]),
+
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                htmlLoader: {
+                    minimize: true,
+                    removeAttributeQuotes: false,
+                    caseSensitive: true,
+                    customAttrSurround: [[/#/, /(?:)/], [/\*/, /(?:)/], [/\[?\(?/, /(?:)/]],
+                    customAttrAssign: [/\)?\]?=/]
+                }
+            }
+        })
     ]
 };

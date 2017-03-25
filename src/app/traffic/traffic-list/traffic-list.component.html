@@ -1,4 +1,4 @@
 <div class="subheader shadow" (right-click)="showInfo( 'airport', destination)">{{airportName}}<small>{{airport}}</small></div>
-<div traffic-entry class="entryrow shadow" *ngFor="let flight of flights" (click)="trafficService.expand(flight.callsign)" (contextmenu)="appService.showPopup($event, flight)"
+<div traffic-entry class="row entry shadow" *ngFor="let flight of flights" (click)="trafficService.expand(flight.callsign)" (contextmenu)="appService.showPopup($event, flight)"
     [type]="type" [flight]="flight">
 </div>

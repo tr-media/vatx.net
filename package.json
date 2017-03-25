@@ -9,7 +9,7 @@
     "build": "webpack --progress --profile --bail",
     "predeploy": "npm run build && npm run validate",
     "deploy": "firebase deploy",
-    "start": "webpack-dev-server --inline --progress --host 0.0.0.0 --port 80 --open",
+    "start": "webpack-dev-server --inline --progress --host 127.0.0.1 --port 80 --open",
     "validate": "tslint -c tslint.json --project ."
   },
   "author": "Tobias Reimann | tr-media.org",

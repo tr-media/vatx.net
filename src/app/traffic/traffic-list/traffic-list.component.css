@@ -1,19 +1,9 @@
 .hidden {
     display: none;
 }
-div.entryrow {
-    width:100%;
-    clear: both;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    overflow: hidden;
-    margin-bottom: 2px;
-}
-div.subheader {
+div.traffic-table div.subheader {
     padding: 0.4em 0;
-    width:100%;
-     background-color: #3E6A8C;
+    background-color: #3E6A8C;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
