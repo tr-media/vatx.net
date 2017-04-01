@@ -1,12 +1,3 @@
-import { NgModule }      from '@angular/core';
-import { FormsModule }   from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { Angulartics2Module } from 'angulartics2';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/src/providers/angulartics2-google-analytics';
-
-import { AppComponent }  from './app.component';
-
 import {
     AnalyticsService,
     AppService,
@@ -18,26 +9,31 @@ import {
     PopupComponent,
     ProfileComponent,
     ProgressBarComponent,
-    SearchComponent
+    SearchComponent,
 }  from './shared';
-
 import {
     TrafficComponent,
     TrafficEntryComponent,
     TrafficListComponent,
     TrafficService,
-    TrafficTableComponent
+    TrafficTableComponent,
 } from './traffic';
-
-import { AboutComponent } from './about';
-import { SettingsComponent } from './settings';
-
 import {
     appRoutingProviders,
-    routing
+    routing,
 } from './app.routing';
 
+import { AboutComponent } from './about';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/src/providers/angulartics2-google-analytics';
+import { Angulartics2Module } from 'angulartics2';
+import { AppComponent }  from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule }   from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { NgModule }      from '@angular/core';
+import { SettingsComponent } from './settings';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
     imports: [
@@ -45,6 +41,7 @@ import { HttpModule } from '@angular/http';
         FormsModule,
         HttpModule,
         routing,
+        BrowserAnimationsModule,
         Angulartics2Module.forRoot()
     ],
     declarations: [
@@ -60,7 +57,8 @@ import { HttpModule } from '@angular/http';
         SearchComponent,
         SettingsComponent,
         ProgressBarComponent,
-        PopupComponent
+        PopupComponent,
+        TestComponent
     ],
     providers: [
         appRoutingProviders,

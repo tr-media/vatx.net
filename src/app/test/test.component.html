@@ -1,0 +1,6 @@
+<div *ngFor="let e of entries" class="entry" [ngClass]="{show: e.show, hide: !e.show}" [@flyInOut]="'in'" (@flyInOut.done)="animationDone($event)">
+    {{e.title}}
+</div>
+<br>
+<button (click)="add()">Add</button><br>
+<button (click)="remove()">Remove</button>

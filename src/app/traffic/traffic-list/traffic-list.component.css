@@ -12,3 +12,18 @@ div.traffic-table div.subheader {
     cursor: help;
     margin-bottom: 2px;
 }
+
+@keyframes slidein {
+ 0% {
+  /*-webkit-transform:translateX(50px);
+  transform:translateX(50px);*/
+  opacity: 0;
+  height: 0;
+ }
+ to {
+  opacity:1;
+  height: 18px;
+  /*-webkit-transform:translateX(0);
+  transform:translateX(0)*/
+ }
+}
