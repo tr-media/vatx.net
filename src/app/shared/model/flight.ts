@@ -56,13 +56,16 @@ export class Flight {
     public homebase: string = '';
     public sort_string: string = '';
 
-    constructor(data: any) {
-        for (let key in this) {
-            if (this.hasOwnProperty(key) && data.hasOwnProperty(key)) {
-                if (this[key] instanceof Date) {
-                    this[key] = moment(data[key]).toDate();
-                } else {
-                    this[key] = data[key];
+    constructor(data?: any) {
+        if (data) {
+            let tmp = new Flight();
+            for (let key in tmp) {
+                if (this.hasOwnProperty(key) && data.hasOwnProperty(key)) {
+                    if (this[key] instanceof Date) {
+                        this[key] = moment(data[key]).toDate();
+                    } else {
+                        this[key] = data[key];
+                    }
                 }
             }
         }
