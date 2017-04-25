@@ -17,13 +17,16 @@ import { TrafficService } from '../traffic.service';
     encapsulation: ViewEncapsulation.None,
     animations: [
         trigger('flyInOut', [
-            state('in', style({ height: '18px', opacity: 1 })),
+            state('collapsed', style({ height: '24px', opacity: 1 })),
+            state('expanded', style({ height: '48px', opacity: 1 })),
+            transition('collapsed => expanded', animate(100)),
+            transition('expanded => collapsed', animate(100)),
             transition(':enter', [
                 style({ opacity: 0, height: 0 }),
-                animate(300)
+                animate(100)
             ]),
             transition(':leave', [
-                animate(500, style({ opacity: 0, height: 0 }))
+                animate(100, style({ opacity: 0, height: 0 }))
             ])
         ])
     ]
@@ -53,5 +56,9 @@ export class TrafficListComponent implements OnInit {
                 count: this.flights.length
             });
         });
+    }
+
+    public getIn(callsign) {
+        return this.trafficService.expanded[callsign] ? 'expanded' : 'collapsed';
     }
 }

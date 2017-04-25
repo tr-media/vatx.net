@@ -8,7 +8,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     encapsulation: ViewEncapsulation.Native,
     animations: [
         trigger('flyInOut', [
-            state('in', style({ height: '18px', opacity: 1 })),
+            state('in', style({ height: '24px', opacity: 1 })),
             transition(':enter', [
                 style({ opacity: 0, height: 0 }),
                 animate(300)

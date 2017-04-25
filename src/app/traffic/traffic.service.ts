@@ -19,7 +19,7 @@ import { Observable } from 'rxjs/Observable';
 export class TrafficService {
     public serverStats: ServerStats = new ServerStats(undefined);
     private clientUpdateInProgress = false;
-    private expanded: { [id: string]: boolean } = {};
+    public expanded: { [id: string]: boolean } = {};
 
     constructor(
         private network: NetworkService,
