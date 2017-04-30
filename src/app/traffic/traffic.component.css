@@ -25,10 +25,12 @@ table.footer td {
 }
 
 table.footer td.warning {
-    background-color: darkred;
+    background-color: #cc6633;
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     border-radius: 0;
+    color: white;
+    font-size: smaller;
 }
 
 table.footer td.progress {
@@ -57,8 +59,9 @@ table.footer td.footer {
     -moz-border-radius: 0 0 3px 3px;
     -webkit-border-radius: 0 0 3px 3px;
     border-radius: 0 0 3px 3px;
-    height: 1px;
+    height: 5px;
     background-color: #95B3CA;
+    padding: 0;
 }
 
 div.half {

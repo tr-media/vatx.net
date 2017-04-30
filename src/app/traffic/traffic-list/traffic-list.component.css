@@ -2,7 +2,7 @@
     display: none;
 }
 div.traffic-table div.subheader {
-    padding: 0.4em 0;
+    padding: 0;
     background-color: #3E6A8C;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -10,6 +10,8 @@ div.traffic-table div.subheader {
     font-size: 0.7em;
     font-weight: 400;
     cursor: help;
+    height: 20px;
+    line-height: 20px;
     margin-bottom: 2px;
 }
 
