@@ -1,3 +1,6 @@
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
 import * as lf from 'lovefield';
 import * as moment from 'moment';
 
@@ -12,14 +15,12 @@ import {
 } from '../shared/';
 
 import { AnalyticsService } from '../shared/analytics.service';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class TrafficService {
     public serverStats: ServerStats = new ServerStats(undefined);
-    private clientUpdateInProgress = false;
     public expanded: { [id: string]: boolean } = {};
+    private clientUpdateInProgress = false;
 
     constructor(
         private network: NetworkService,
@@ -96,7 +97,6 @@ export class TrafficService {
 
             this.db.vatxDatabase.select(table.callsign).from(table).exec().then(existingCallsigns => {
                 existingCallsigns = existingCallsigns.map(c => { return c['callsign']; });
-                //console.log(existingCallsigns);
                 let result = {
                     delete: [],
                     update: [],
