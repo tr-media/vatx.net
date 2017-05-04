@@ -71,16 +71,6 @@ export class Flight {
         }
     }
 
-    public update(data: any) {
-        if (data) {
-            for (let key in data) {
-                if (data.hasOwnProperty(key) && this.hasOwnProperty(key)) {
-                    this[key] = data[key];
-                }
-            }
-        }
-    }
-
     public static createTable(schemaBuilder: lf.schema.Builder) {
         schemaBuilder.createTable('flights').
             addColumn('callsign', lf.Type.STRING).
@@ -134,5 +124,15 @@ export class Flight {
             addPrimaryKey(['callsign']).
             addIndex('idxArrivalAirports', ['planned_destairport', 'sort_string'], false).
             addIndex('idxDepartureAirports', ['planned_depairport', 'sort_string'], false);
+    }
+
+    public update(data: any) {
+        if (data) {
+            for (let key in data) {
+                if (data.hasOwnProperty(key) && this.hasOwnProperty(key)) {
+                    this[key] = data[key];
+                }
+            }
+        }
     }
 }

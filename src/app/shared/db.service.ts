@@ -5,7 +5,7 @@ import {
     Airport,
     Flight,
     LibraryInfo,
-    Setting,
+    Setting
 } from './model';
 
 import { Injectable } from '@angular/core';

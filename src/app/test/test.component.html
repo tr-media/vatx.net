@@ -1,4 +1,4 @@
-<div *ngFor="let e of entries" class="entry" [ngClass]="{show: e.show, hide: !e.show}" [@flyInOut]="'in'" (@flyInOut.done)="animationDone($event)">
+<div *ngFor="let e of entries" class="entry" [ngClass]="{show: e.show, hide: !e.show}" [@flyInOut]="'in'" >
     {{e.title}}
 </div>
 <br>

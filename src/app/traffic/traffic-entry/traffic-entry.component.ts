@@ -44,8 +44,6 @@ export class TrafficEntryComponent implements OnInit {
             let exp = /^(?:.\/)?([A-Z0-9a-z]{2,})(?:\/.)?$/;
             aircraft = exp.exec(this.flight.planned_aircraft)[1];
         } catch (e) {
-            //console.log(e);
-            //console.log(this.flight);
             console.log(this.flight.callsign + ' has an unknown aircraft type: ' + this.flight.planned_aircraft);
             aircraft = '';
         }

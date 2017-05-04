@@ -1,3 +1,13 @@
+import { NgModule }      from '@angular/core';
+import { FormsModule }   from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {
+    appRoutingProviders,
+    routing
+} from './app.routing';
 import {
     AnalyticsService,
     AppService,
@@ -9,27 +19,18 @@ import {
     PopupComponent,
     ProfileComponent,
     ProgressBarComponent,
-    SearchComponent,
+    SearchComponent
 }  from './shared';
 import {
     TrafficComponent,
     TrafficEntryComponent,
     TrafficListComponent,
     TrafficService,
-    TrafficTableComponent,
+    TrafficTableComponent
 } from './traffic';
-import {
-    appRoutingProviders,
-    routing,
-} from './app.routing';
 
 import { AboutComponent } from './about';
 import { AppComponent }  from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { NgModule }      from '@angular/core';
 import { SettingsComponent } from './settings';
 import { TestComponent } from './test/test.component';
 

@@ -18,6 +18,8 @@ export class LovefieldHelper {
                 let result = database.insertOrReplace().into(table).values(chunk).exec();
                 while (chunks.length > 0) {
                     let currentChunk = totalChunks - chunks.length;
+                    // Intended shadowing of chunk. Each iteration needs its own variable within its own scope.
+                    // tslint:disable-next-line no-shadowed-variable
                     let chunk = chunks.shift().map(c => {
                         return table.createRow(c);
                     });

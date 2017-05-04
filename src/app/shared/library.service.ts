@@ -1,22 +1,22 @@
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
 import * as lf from 'lovefield';
 import * as moment from 'moment';
 
 import {
-    Airline,
-    Airport,
-    LibraryInfo,
-} from './model';
-import {
     Flight,
     LovefieldHelper,
-    SearchResult,
+    SearchResult
 } from './';
-
 import { AnalyticsService } from './analytics.service';
 import { DbService } from './db.service';
-import { Injectable } from '@angular/core';
+import {
+    Airline,
+    Airport,
+    LibraryInfo
+} from './model';
 import { NetworkService } from './network.service';
-import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class LibraryService {

@@ -1,5 +1,5 @@
-import { Component, ViewEncapsulation } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { Component, ViewEncapsulation } from '@angular/core';
 import * as lf from 'lovefield';
 
 import {
@@ -34,7 +34,7 @@ export class TestComponent {
     ) { }
 
     public add() {
-        this.entries.splice(0, 0, { title: "Bla", show: true });
+        this.entries.splice(0, 0, { title: 'Bla', show: true });
     }
 
     public remove() {
@@ -65,9 +65,5 @@ export class TestComponent {
         this.db.vatxDatabase.delete().from(flights).where(flights.callsign.eq('BER107')).exec().then(results => {
             console.log('deleted?');
         });
-    }
-
-    public animationDone(ev) {
-
     }
 }
