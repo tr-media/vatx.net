@@ -49,6 +49,12 @@ export class TrafficListComponent implements OnInit {
         this.library.getAirport(this.airport).subscribe(airport => {
             this.airportName = airport.name + '    ';
         });
+        // Reset counters
+        this.flightsUpdated.emit({
+            airport: this.airport,
+            count: this.flights.length
+        });
+        // Register for updates
         this.trafficService.monitorTraffic(this.type, this.airport).subscribe((r) => {
             // Remove deleted entries first
             let i = 0;
