@@ -8,6 +8,14 @@
 
 # Changelog
 
+### v2.2.0 - 2017-05-04
+- Tables redesigned as flex layout for a smoother responsive behavior on different devices.
+- Optimized database queries for better performance.
+- Updated framework to Angular 4
+- Removed Google Analytics
+
+---
+
 ### v2.1.0 - 2016-10-06
 - Added sweet alert warnings before deleting important things.
 
