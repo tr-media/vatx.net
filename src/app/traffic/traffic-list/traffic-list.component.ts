@@ -60,7 +60,6 @@ export class TrafficListComponent implements OnInit {
             let i = 0;
             while (r.removed.length >= 0 && i < this.flights.length) {
                 if (r.removed.indexOf(this.flights[i].callsign) >= 0) {
-                    console.log(this.flights[i].callsign + ' deleted.');
                     this.flights.splice(i, 1);
                 } else {
                     i++;
@@ -88,7 +87,7 @@ export class TrafficListComponent implements OnInit {
                     if (k >= 0) {
                         // Move entry to correct position
                         this.flights.splice(k, 1);
-                        this.flights.splice(i, 0, r.rows[i]);
+                        this.flights.splice(i, 0, new Flight(r.rows[i]));
                     } else {
                         // Insert at new position
                         this.flights.splice(i, 0, new Flight(r.rows[i]));
