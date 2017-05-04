@@ -24,8 +24,6 @@ import {
 } from './app.routing';
 
 import { AboutComponent } from './about';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/src/providers/angulartics2-google-analytics';
-import { Angulartics2Module } from 'angulartics2';
 import { AppComponent }  from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
@@ -41,8 +39,7 @@ import { TestComponent } from './test/test.component';
         FormsModule,
         HttpModule,
         routing,
-        BrowserAnimationsModule,
-        Angulartics2Module.forRoot()
+        BrowserAnimationsModule
     ],
     declarations: [
         AppComponent,
@@ -66,8 +63,7 @@ import { TestComponent } from './test/test.component';
         NetworkService,
         AppService,
         DbService,
-        LibraryService,
-        Angulartics2GoogleAnalytics,
+        LibraryService
         AnalyticsService
     ],
     bootstrap: [AppComponent]
