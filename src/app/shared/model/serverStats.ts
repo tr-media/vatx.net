@@ -1,4 +1,4 @@
-import * as lf from 'lf';
+import * as lf from 'lovefield';
 import * as moment from 'moment';
 
 export class ServerStats {

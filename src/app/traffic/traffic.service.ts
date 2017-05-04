@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-
-import { AnalyticsService } from '../shared/analytics.service';
-import * as moment from 'moment';
 import { Observable } from 'rxjs/Observable';
+
+import * as lf from 'lovefield';
+import * as moment from 'moment';
 
 import {
     DbService,
@@ -14,11 +14,13 @@ import {
     Setting
 } from '../shared/';
 
+import { AnalyticsService } from '../shared/analytics.service';
+
 @Injectable()
 export class TrafficService {
     public serverStats: ServerStats = new ServerStats(undefined);
+    public expanded: { [id: string]: boolean } = {};
     private clientUpdateInProgress = false;
-    private expanded: { [id: string]: boolean } = {};
 
     constructor(
         private network: NetworkService,
@@ -38,8 +40,8 @@ export class TrafficService {
         });
     }
 
-    public monitorTraffic(type: string, id: string): Observable<Flight[]> {
-        return new Observable<Flight[]>(subscriber => {
+    public monitorTraffic(type: string, id: string): Observable<{ rows: Flight[], updated: number[], removed: string[] }> {
+        return new Observable<{ rows: Flight[], updated: number[], removed: string[] }>(subscriber => {
             let flights: any = this.db.vatxDatabase.getSchema().table('flights');
             let query;
             if (type === 'ARRIVALS') {
@@ -47,12 +49,32 @@ export class TrafficService {
             } else {
                 query = this.db.vatxDatabase.select().from(flights).orderBy(flights.sort_string, lf.Order.DESC).where(flights.planned_depairport.eq(id));
             }
-            query.exec().then(results => {
-                subscriber.next(results);
-                this.db.vatxDatabase.observe(query, changes => {
-                    subscriber.next(changes[0].object);
-                });
+            this.db.vatxDatabase.observe(query, changes => {
+                let changeSet = {
+                    rows: changes[0].object,
+                    updated: [],
+                    removed: []
+                };
+                for (let i = 0; i < changes.length; i++) {
+                    // Add callsigns to removed list
+                    for (let j = 0; j < changes[i].removed.length; j++) {
+                        changeSet.removed.push(changes[i].removed[j].callsign);
+                    }
+                    // Add indeces to updated list
+                    for (let j = 0; j < changes[i].addedCount; j++) {
+                        changeSet.updated.push(changes[i].index + j);
+                    }
+                    // Check consistency
+                    for (let j = 0 ; j < changeSet.updated.length; j++) {
+                        let k = changeSet.removed.indexOf(changeSet.rows[changeSet.updated[j]].callsign);
+                        if (k >= 0) {
+                            changeSet.removed.splice(k, 1);
+                        }
+                    }
+                }
+                subscriber.next(changeSet);
             });
+            query.exec();
 
         });
 
@@ -66,21 +88,58 @@ export class TrafficService {
         if (this.clientUpdateInProgress) {
             return;
         }
+        console.log('Updating data...');
         this.clientUpdateInProgress = true;
         this.analytics.trackEvent('traffic', 'update-clients');
         this.network.updateClientData().subscribe((flights: Flight[]) => {
             let table: any = this.db.vatxDatabase.getSchema().table('flights');
             let start = new Date().getTime();
-            LovefieldHelper.insertChunks(this.db.vatxDatabase, table, flights).subscribe(status => {
-                // console.log('Status: ' + Math.round(status * 100) + '%');
-            }, err => {
-                console.log('Failed to insert:' + err);
-            }, () => {
-                // console.log('Done!');
-                this.db.vatxDatabase.delete().from(table).where(table.last_update_from_stream.lt(flights[0].last_update_from_stream)).exec().then(() => {
-                    console.log('client update complete');
-                    this.clientUpdateInProgress = false;
-                });
+
+            this.db.vatxDatabase.select(table.callsign).from(table).exec().then(existingCallsigns => {
+                existingCallsigns = existingCallsigns.map(c => { return c['callsign']; });
+                let result = {
+                    delete: [],
+                    update: [],
+                    insert: []
+                };
+                for (let i = 0; i < flights.length; i++) {
+                    let j = existingCallsigns.indexOf(flights[i].callsign);
+                    if (j >= 0) {
+                        result.update.push(flights[i]);
+                        existingCallsigns.splice(j, 1);
+                    } else {
+                        result.insert.push(flights[i]);
+                    }
+                }
+                result.delete = existingCallsigns;
+                return result;
+            }).then(job => {
+                if (job.delete.length > 0) {
+                    return LovefieldHelper.deleteBulk(this.db.vatxDatabase, table, job.delete).then(() => {
+                        return job;
+                    });
+                } else {
+                    return job;
+                }
+            }).then(job => {
+                if (job.update.length > 0) {
+                    return LovefieldHelper.updateBulk(this.db.vatxDatabase, table, job.update).then(() => {
+                        return job;
+                    });
+                } else {
+                    return job;
+                }
+            }).then(job => {
+                if (job.insert.length > 0) {
+                    return LovefieldHelper.insertBulk(this.db.vatxDatabase, table, job.insert).then(() => {
+                        return job;
+                    });
+                } else {
+                    return job;
+                }
+            }).then(() => {
+                console.log('Update complete.');
+                this.clientUpdateInProgress = false;
             });
         });
     }

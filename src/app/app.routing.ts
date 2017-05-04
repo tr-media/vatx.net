@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AboutComponent } from './about';
 import { SettingsComponent } from './settings';
+import { TestComponent } from './test';
 import { TrafficComponent } from './traffic';
 
 const appRoutes: Routes = [
@@ -21,6 +22,10 @@ const appRoutes: Routes = [
     {
         path: 'settings',
         component: SettingsComponent
+    },
+    {
+        path: 'test',
+        component: TestComponent
     }
 ];
 

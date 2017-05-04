@@ -1,12 +1,14 @@
-import { Injectable } from '@angular/core';
+import * as lf from 'lovefield';
 
 import {
     Airline,
     Airport,
     Flight,
     LibraryInfo,
-    Setting
+    Setting,
 } from './model';
+
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class DbService {

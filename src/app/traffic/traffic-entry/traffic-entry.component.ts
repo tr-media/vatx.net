@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
@@ -13,7 +13,8 @@ import { Flight } from '../../shared/model/flight';
     selector: '[traffic-entry]',
     templateUrl: './traffic-entry.component.html',
     styleUrls: ['./traffic-entry.component.css'],
-    changeDetection: ChangeDetectionStrategy.Default
+    changeDetection: ChangeDetectionStrategy.Default,
+    encapsulation: ViewEncapsulation.None
 })
 export class TrafficEntryComponent implements OnInit {
     @Input() public type: string;
@@ -43,8 +44,9 @@ export class TrafficEntryComponent implements OnInit {
             let exp = /^(?:.\/)?([A-Z0-9a-z]{2,})(?:\/.)?$/;
             aircraft = exp.exec(this.flight.planned_aircraft)[1];
         } catch (e) {
-            console.log(e);
-            console.log(this.flight);
+            //console.log(e);
+            //console.log(this.flight);
+            console.log(this.flight.callsign + ' has an unknown aircraft type: ' + this.flight.planned_aircraft);
             aircraft = '';
         }
 

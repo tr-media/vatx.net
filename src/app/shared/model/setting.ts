@@ -1,3 +1,5 @@
+import * as lf from 'lovefield';
+
 export class Setting {
     public key: string = '';
     public value: any = {};
