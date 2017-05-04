@@ -63,7 +63,7 @@ import { TestComponent } from './test/test.component';
         NetworkService,
         AppService,
         DbService,
-        LibraryService
+        LibraryService,
         AnalyticsService
     ],
     bootstrap: [AppComponent]
