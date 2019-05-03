@@ -38,29 +38,29 @@ export class NetworkService {
     }
 
     public updateServerStats(): Observable<ServerStats> {
-        return Observable.interval(5000).flatMap(() => this.http.get('https://api.vatx.net/stats', { headers: this.headers })).map(res => new ServerStats(res.json()));
+        return Observable.interval(5000).flatMap(() => this.http.get('https://vatx.herokuapp.com/stats', { headers: this.headers })).map(res => new ServerStats(res.json()));
     }
 
     public updateClientData(): Observable<Flight[]> {
-        return this.http.get('https://api.vatx.net/pilots', { headers: this.headers }).map(res => {
+        return this.http.get('https://vatx.herokuapp.com/pilots', { headers: this.headers }).map(res => {
             return res.json().map(json => new Flight(json));
         });
     }
 
     public getAirports(): Observable<any[]> {
-        return this.http.get('https://api.vatx.net/airports?mode=list', { headers: this.headers }).map(res => {
+        return this.http.get('https://vatx.herokuapp.com/airports?mode=list', { headers: this.headers }).map(res => {
             return res.json();
         });
     }
 
     public getAirlines(): Observable<any[]> {
-        return this.http.get('https://api.vatx.net/airlines?mode=list', { headers: this.headers }).map(res => {
+        return this.http.get('https://vatx.herokuapp.com/airlines?mode=list', { headers: this.headers }).map(res => {
             return res.json();
         });
     }
 
     public getMeta(): Observable<any[]> {
-        return this.http.get('https://api.vatx.net/about', { headers: this.headers }).map(res => {
+        return this.http.get('https://vatx.herokuapp.com/about', { headers: this.headers }).map(res => {
             return res.json();
         });
     }

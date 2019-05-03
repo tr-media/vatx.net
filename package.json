@@ -25,6 +25,8 @@
     "@angular/platform-browser-dynamic": "~4.0.0",
     "@angular/router": "~4.0.0",
     "@angular/upgrade": "~4.0.0",
+    "@types/core-js": "^2.5.0",
+    "@types/node": "^11.13.9",
     "core-js": "^2.4.1",
     "json-loader": "^0.5.4",
     "lovefield": "tr-media/lovefield",
